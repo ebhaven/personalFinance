@@ -1,33 +1,37 @@
 module.exports = (sequelize, Sequelize) => {
-    const pf = sequelize.define("tradebook", {
-      client_id: {
-        type: Sequelize.STRING
+    const tb = sequelize.define("tradebook", {
+      symbol: {
+        type: Sequelize.STRING,
+        primaryKey: true
       },
       isin: {
         type: Sequelize.STRING
       },
-      scheme_name: {
+      exchange: {
         type: Sequelize.STRING
       },
-      plan: {
+      segment: {
         type: Sequelize.STRING
       },
-      transaction_mode: {
+      series: {
         type: Sequelize.STRING
       },
       trade_date: {
         type: Sequelize.STRING
       },
-      folio_number: {
+      trade_type: {
         type: Sequelize.STRING
       },
-      units: {
+      quantity: {
         type: Sequelize.STRING
       },
-      status: {
+      price: {
         type: Sequelize.STRING
-      }
-    });
+      },
+      
+    },{
+        timestamps: false
+      });
   
-    return pf;
+    return tb;
   };
